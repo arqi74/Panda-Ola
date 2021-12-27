@@ -1,0 +1,89 @@
+<html>
+    <head>
+        <title>Ola Input :3</title>
+        <style>
+            body {
+                background-color: #2f3030;
+                text-align: center;
+                padding: 50px;
+                color: white;
+                font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            }
+
+            textarea {
+                background-color: #2f3030;
+                border: 1px solid #525555;
+                color: white;
+                width: 450px;
+                height: 200px;
+            }
+
+            select {
+                background-color: #2f3030;
+                color: white;
+                width: 200px;
+                height: 25px;
+                border: 1px solid #525555;
+            }
+
+            button {
+                background-color: #232424;
+                border: 1px solid #525555;
+                color: white;
+                width: 250px;
+                height: 35px;
+            }
+        </style>
+    </head>
+    <body onload="loadChannels()">
+
+        <h1>Dobrze że boty nie są dwulicowe ;)</h1>
+
+        <!--textarea id="text"></textarea><br><br>
+        <select id="channel"></select><br><br>
+        <button id="send" onclick="sendMess()">Wyślij</button><br><br>-->
+        
+        <script>
+            function loadChannels() {
+                var req = new XMLHttpRequest();
+                req.onreadystatechange = function () {
+                    if(this.readyState == 4 && this.status == 200) {
+                        var odp = this.responseText;
+                        var dane = JSON.parse(odp);
+                        var select = document.getElementById("channel");
+                        dane.forEach(function (element) {
+                            var obiekt = document.createElement("option");
+                            obiekt.setAttribute("value", element.id);
+                            obiekt.innerText = element.name;
+                            select.appendChild(obiekt);
+                        });
+                    } 
+                }
+                req.open("GET", "/channels", true);
+                req.send();
+            }
+
+            function sendMess() {
+                var req = new XMLHttpRequest();
+                req.onreadystatechange = function () {
+                    if(this.readyState == 4 && this.status == 200) {
+                        console.log("OK");
+
+                    } else if (this.readyState == 4) {
+                        console.log(this.status);
+                    }
+                }
+                req.open("POST", "/posts", true);
+                req.setRequestHeader("Content-type", "application/json");
+                var text = document.getElementById("text").value;
+                var channel = document.getElementById("channel").value;
+
+                var wiadomosc = {
+                    text: text,
+                    channel: channel
+                };
+                req.send(JSON.stringify(wiadomosc));
+            }
+        </script>
+    </body>
+</html>

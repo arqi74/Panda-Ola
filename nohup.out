@@ -1,0 +1,36 @@
+Ready: 502856204091916298
+Web started on: 7777
+Ready: 502856204091916298
+Web started on: 7777
+Ready: 502856204091916298
+events.js:183
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: listen EADDRINUSE :::7777
+    at Server.setupListenHandle [as _listen2] (net.js:1360:14)
+    at listenInCluster (net.js:1401:12)
+    at Server.listen (net.js:1485:7)
+    at Function.listen (/var/www/node_modules/express/lib/application.js:618:24)
+    at Client.app.on (/var/www/pandaOla/ola.js:125:12)
+    at emitNone (events.js:111:20)
+    at Client.emit (events.js:208:7)
+    at WebSocketConnection.triggerReady (/var/www/node_modules/discord.js/src/client/websocket/WebSocketConnection.js:125:17)
+    at WebSocketConnection.checkIfReady (/var/www/node_modules/discord.js/src/client/websocket/WebSocketConnection.js:141:61)
+    at GuildCreateHandler.handle (/var/www/node_modules/discord.js/src/client/websocket/packets/handlers/GuildCreate.js:13:31)
+Ready: 502856204091916298
+events.js:183
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: listen EADDRINUSE :::7777
+    at Server.setupListenHandle [as _listen2] (net.js:1360:14)
+    at listenInCluster (net.js:1401:12)
+    at Server.listen (net.js:1485:7)
+    at Function.listen (/var/www/node_modules/express/lib/application.js:618:24)
+    at Client.app.on (/var/www/pandaOla/ola.js:125:12)
+    at emitNone (events.js:111:20)
+    at Client.emit (events.js:208:7)
+    at WebSocketConnection.triggerReady (/var/www/node_modules/discord.js/src/client/websocket/WebSocketConnection.js:125:17)
+    at WebSocketConnection.checkIfReady (/var/www/node_modules/discord.js/src/client/websocket/WebSocketConnection.js:141:61)
+    at GuildCreateHandler.handle (/var/www/node_modules/discord.js/src/client/websocket/packets/handlers/GuildCreate.js:13:31)
